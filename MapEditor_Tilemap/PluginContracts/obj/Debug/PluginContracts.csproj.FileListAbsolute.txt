@@ -1,0 +1,7 @@
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginContracts\bin\Debug\PluginContracts.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginContracts\bin\Debug\PluginContracts.pdb
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginContracts\bin\Debug\Common.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginContracts\bin\Debug\Common.pdb
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginContracts\obj\Debug\PluginContracts.csprojResolveAssemblyReference.cache
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginContracts\obj\Debug\PluginContracts.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginContracts\obj\Debug\PluginContracts.pdb

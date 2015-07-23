@@ -1,0 +1,5 @@
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\Common\bin\Debug\Common.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\Common\bin\Debug\Common.pdb
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\Common\obj\Debug\Common.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\Common\obj\Debug\Common.pdb

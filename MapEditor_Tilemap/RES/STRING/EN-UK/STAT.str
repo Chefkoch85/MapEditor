@@ -1,0 +1,17 @@
+// EN-UK Status strings
+[INFO]
+VERSION="1.0"
+
+[STRING]
+// Status messages right
+statRightEB="Doing Export, don't close app!"
+statRightEE1="Error while exporting!"
+statRightEE2="Export done!"
+
+// Status messages center
+statCenterW1="Welcome to the Tilemap editor by Chefkoch,,"
+statCenterW2=" there were no export plugins found!"
+statCenterW3="" there is 1 export plugin found."
+statCenterW4=" there were {0} export plugins found."
+
+[END]

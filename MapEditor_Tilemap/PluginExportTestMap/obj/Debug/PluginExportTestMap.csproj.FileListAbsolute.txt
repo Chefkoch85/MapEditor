@@ -1,0 +1,9 @@
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\bin\Debug\PluginExportTestMap.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\bin\Debug\PluginExportTestMap.pdb
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\bin\Debug\Common.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\bin\Debug\PluginContracts.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\bin\Debug\Common.pdb
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\bin\Debug\PluginContracts.pdb
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\obj\Debug\PluginExportTestMap.csprojResolveAssemblyReference.cache
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\obj\Debug\PluginExportTestMap.dll
+F:\PROGRAMM\GitHub.local\MapEditor\MapEditor_Tilemap\PluginExportTestMap\obj\Debug\PluginExportTestMap.pdb

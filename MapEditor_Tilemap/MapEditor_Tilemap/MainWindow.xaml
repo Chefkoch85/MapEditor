@@ -1,7 +1,10 @@
 ﻿<Window x:Class="MapEditor_Tilemap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="1050" Width="1680" WindowStartupLocation="Manual" Top="0" Left="0" WindowState="Maximized">
+        Title="MainWindow" 
+		Height="768" Width="1024" WindowStartupLocation="Manual" 
+		Top="0" Left="0" WindowState="Normal"
+		Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
@@ -11,23 +14,27 @@
         
         <!--MENU-->
         <Menu Grid.Row="0">
-            <MenuItem Header="_FILE">
-                <MenuItem Header="_NEW" Click="MenuItem_Click" />
+            <MenuItem Header="_FILE" Name="mitFile">
+                <MenuItem Header="_NEW" Name="mitNew" Click="MenuItem_Click" />
                 <Separator/>
-                <MenuItem Header="_OPEN" Click="MenuItem_Click" />
+                <MenuItem Header="_OPEN" Name="mitOpen" Click="MenuItem_Click" />
                 <Separator/>
-                <MenuItem Header="_SAVE" Click="MenuItem_Click" />
-                <MenuItem Header="SAVE _AS" Click="MenuItem_Click" />
-                <Separator/>
-                <MenuItem Header="_CLOSE" Click="MenuItem_Click" />
+                <MenuItem Header="_SAVE" Name="mitSave" Click="MenuItem_Click" />
+                <MenuItem Header="SAVE _AS" Name="mitSaveAs" Click="MenuItem_Click" />
+                <Separator Name="sepExport"/>
+				<MenuItem Header="_EXPORT AS" Name="mitExport" Tag="tagExport"/>
+				<Separator/>
+				<MenuItem Header="_OPTIONS" Name="mitOptions" Click="MenuItem_Click" />
+				<Separator />
+                <MenuItem Header="_CLOSE" Name="mitClose" Click="MenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="_MAP">
-                <MenuItem Header="INF_O" Click="MenuItem_Click" />
-                <MenuItem Header="_PROPERTY" Click="MenuItem_Click" />
+            <MenuItem Header="_MAP" Name="mitMap">
+                <MenuItem Header="INF_O" Name="mitMapInfo" Click="MenuItem_Click" />
+                <MenuItem Header="_PROPERTY" Name="mitMapProperty" Click="MenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="_INFO">
-                <MenuItem Header="A_BOUT" Click="MenuItem_Click" />
-                <MenuItem Header="INF_O" Click="MenuItem_Click" />
+            <MenuItem Header="_INFO" Name="mitInfo">
+                <MenuItem Header="A_BOUT" Name="mitAbout" Click="MenuItem_Click" />
+                <MenuItem Header="_HELP" Name="mitHelp" Click="MenuItem_Click" />
             </MenuItem>
         </Menu>
         
@@ -37,29 +44,40 @@
                 <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
-            <GroupBox Grid.Column="0" Header="MAP:" Foreground="White" Margin="4,0,2,4">
-                
-            </GroupBox>
-            <GroupBox Grid.Column="1" Header="TILE:" Foreground="White" Margin="2,0,4,4">
-                <TabControl Background="Black">
-                    <TabItem Header="STANDARD" Background="Black" Foreground="White">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <ListView Background="Black" Foreground="White">
-                                <ListViewItem>
-                                    <DockPanel>
-                                        <Label DockPanel.Dock="Left" Content="TEST" Foreground="White" />
-                                        <Image DockPanel.Dock="Right" />
-                                    </DockPanel>
-                                </ListViewItem>
+            <GroupBox Grid.Column="0" Header="MAP:" Name="grbMap" Visibility="Hidden" Foreground="White" Margin="4,0,2,4">
+				<Grid Name="grdMap"/>
+			</GroupBox>
+            <GroupBox Grid.Column="1" Header="TILE:" Name="grbTile" Foreground="White" Margin="2,0,4,4">
+				<TabControl Background="Black" SelectionChanged="TabControl_SelectionChanged" Tag="tagTilesControl">
+					<TabItem Header="TERRAIN" Background="Black" Foreground="White" Tag="tagTerrain" Name="taiTerrain">
+						<ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                            <ListView Name="livTerrain" Background="Black" Foreground="White" SelectionChanged="ListView_SelectionChanged">
+								
                             </ListView>
                         </ScrollViewer>
                     </TabItem>
-                    <TabItem Header="EXTRA" Background="Black" Foreground="White">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TabItem Header="RESSORCES" Background="Black" Foreground="White" Tag="tagRessource" Name="taiRessource">
+						<ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+							<ListView Name="livRessource" Background="Black" Foreground="White" SelectionChanged="ListView_SelectionChanged">
 
-                        </ScrollViewer>
+							</ListView>
+						</ScrollViewer>
                     </TabItem>
-                </TabControl>
+					<TabItem Header="DECALS" Background="Black" Foreground="White" Tag="tagDecal" Name="taiDecal">
+						<ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+							<ListView Name="livDecal" Background="Black" Foreground="White" SelectionChanged="ListView_SelectionChanged">
+
+							</ListView>
+						</ScrollViewer>
+					</TabItem>
+					<TabItem Header="MODIFICATION" Background="Black" Foreground="White" Tag="tagModification" Name="taiModify">
+						<ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+							<ListView Name="livModification" Background="Black" Foreground="White" SelectionChanged="ListView_SelectionChanged">
+
+							</ListView>
+						</ScrollViewer>
+					</TabItem>
+				</TabControl>
             </GroupBox>
         </Grid>
         
@@ -90,15 +108,15 @@
                 <TextBlock Name="txbCursorY" Text="9999 :Y" />
             </StatusBarItem>
             <Separator Grid.Column="3" />
-            <StatusBarItem Grid.Column="4">
+            <StatusBarItem Grid.Column="4" Name="sbiCenter">
                 <TextBlock Name="txbStatusCenter" Text="HELLO" />
             </StatusBarItem>
             <Separator Grid.Column="5" />
-            <StatusBarItem Grid.Column="6" HorizontalContentAlignment="Stretch">
+            <StatusBarItem Grid.Column="6" Name="sbiProgress" HorizontalContentAlignment="Stretch">
                 <ProgressBar Name="pgbAdvantage" Value="50" Height="16" Visibility="Hidden" />
             </StatusBarItem>
             <Separator Grid.Column="7" />
-            <StatusBarItem Grid.Column="8">
+            <StatusBarItem Grid.Column="8" Name="sbiRight">
                 <TextBlock Name="txbStatusRight" Text="ERROR" />
             </StatusBarItem>
         </StatusBar>
